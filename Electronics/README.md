@@ -1,5 +1,5 @@
 # PowerResearch
-## Fundamental Research for under standing robot power use.
+## Fundamental Research for understanding robot power use.
   
   
 ### Current sensing for individual chassis motor
