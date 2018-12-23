@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=+12 Pin=H2-1
+Removed Pin From Net: NetName=NEG2 Pin=H2-2
+Removed Pin From Net: NetName=GND Pin=H5-NEG
+Removed Pin From Net: NetName=+12 Pin=H5-POS
+Change Component Footprint: Designator=H5 Old Footprint=XT30-PW - no anc New Footprint=XT60PW - SMD
+Change Component Footprint: Designator=H2 Old Footprint=XT60PW - SMD New Footprint=XT30-PW - SMD
+Added Pin To Net: NetName=NEG2 Pin=H2-NEG
+Added Pin To Net: NetName=+12 Pin=H2-POS
+Added Pin To Net: NetName=+12 Pin=H5-1
+Added Pin To Net: NetName=GND Pin=H5-2

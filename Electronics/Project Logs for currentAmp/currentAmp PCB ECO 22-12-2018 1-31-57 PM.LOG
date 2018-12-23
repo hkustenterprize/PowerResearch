@@ -1,0 +1,186 @@
+Added Component: Designator=B1(SOIC127P600X175-8N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.ti.com/lit/ds/symlink/ina282.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "1.75mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=B2(SOIC127P600X175-8N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.ti.com/lit/ds/symlink/ina282.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "1.75mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=B3(SOIC127P600X175-8N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.ti.com/lit/ds/symlink/ina282.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "1.75mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=B4(SOIC127P600X175-8N)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.ti.com/lit/ds/symlink/ina282.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "1.75mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "Texas Instruments"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.com/Search/Refine.aspx?Keyword=595-INA282AIDR"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "RS Price/Stock"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C1(0805_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "?????"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_2131.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C1779"; VariantName = "[No Variations]"
+Added Component: Designator=C2(0805_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "?????"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_2131.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C1779"; VariantName = "[No Variations]"
+Added Component: Designator=C3(0805_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "?????"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_2131.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C1779"; VariantName = "[No Variations]"
+Added Component: Designator=C4(0805_C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentLink1Description"; Value = "?????"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "ComponentLink1URL"; Value = "http://www.szlcsc.com/product/details_2131.html"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "0805"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "LC"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "SuppliersPartNumber"; Value = "C1779"; VariantName = "[No Variations]"
+Added Component: Designator=H1(XT30-PW - SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=H2(XT30-PW - SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=H3(XT30-PW - SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=H4(XT30-PW - SMD)
+Add component. Clean all parameters for all variants
+Added Component: Designator=H5(XT30-PW - no anc)
+Add component. Clean all parameters for all variants
+Added Component: Designator=P1(HDR1X6)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "LatestRevisionDate"; Value = "17-Jul-2002"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "LatestRevisionNote"; Value = "Re-released for DXP Platform."; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Publisher"; Value = "Altium Limited"; VariantName = "[No Variations]"
+Added Component: Designator=R1(OARS-XP)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R2(OARS-XP)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R3(OARS-XP)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R4(OARS-XP)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetB1_1 Pin=B1-1
+Added Pin To Net: NetName=GND Pin=B1-2
+Added Pin To Net: NetName=VCC Pin=B1-3
+Added Pin To Net: NetName=SEN1 Pin=B1-5
+Added Pin To Net: NetName=VCC Pin=B1-6
+Added Pin To Net: NetName=GND Pin=B1-7
+Added Pin To Net: NetName=NetB1_8 Pin=B1-8
+Added Pin To Net: NetName=NetB2_1 Pin=B2-1
+Added Pin To Net: NetName=GND Pin=B2-2
+Added Pin To Net: NetName=VCC Pin=B2-3
+Added Pin To Net: NetName=SEN2 Pin=B2-5
+Added Pin To Net: NetName=VCC Pin=B2-6
+Added Pin To Net: NetName=GND Pin=B2-7
+Added Pin To Net: NetName=NetB2_8 Pin=B2-8
+Added Pin To Net: NetName=NetB3_1 Pin=B3-1
+Added Pin To Net: NetName=GND Pin=B3-2
+Added Pin To Net: NetName=VCC Pin=B3-3
+Added Pin To Net: NetName=SEN3 Pin=B3-5
+Added Pin To Net: NetName=VCC Pin=B3-6
+Added Pin To Net: NetName=GND Pin=B3-7
+Added Pin To Net: NetName=NetB3_8 Pin=B3-8
+Added Pin To Net: NetName=NetB4_1 Pin=B4-1
+Added Pin To Net: NetName=GND Pin=B4-2
+Added Pin To Net: NetName=VCC Pin=B4-3
+Added Pin To Net: NetName=SEN4 Pin=B4-5
+Added Pin To Net: NetName=VCC Pin=B4-6
+Added Pin To Net: NetName=GND Pin=B4-7
+Added Pin To Net: NetName=NetB4_8 Pin=B4-8
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=VCC Pin=C1-2
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=VCC Pin=C2-2
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=VCC Pin=C3-2
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=VCC Pin=C4-2
+Added Pin To Net: NetName=NEG1 Pin=H1-NEG
+Added Pin To Net: NetName=+12 Pin=H1-POS
+Added Pin To Net: NetName=NEG2 Pin=H2-NEG
+Added Pin To Net: NetName=+12 Pin=H2-POS
+Added Pin To Net: NetName=NEG3 Pin=H3-NEG
+Added Pin To Net: NetName=+12 Pin=H3-POS
+Added Pin To Net: NetName=NEG4 Pin=H4-NEG
+Added Pin To Net: NetName=+12 Pin=H4-POS
+Added Pin To Net: NetName=GND Pin=H5-NEG
+Added Pin To Net: NetName=+12 Pin=H5-POS
+Added Pin To Net: NetName=GND Pin=P1-1
+Added Pin To Net: NetName=VCC Pin=P1-2
+Added Pin To Net: NetName=SEN1 Pin=P1-3
+Added Pin To Net: NetName=SEN2 Pin=P1-4
+Added Pin To Net: NetName=SEN3 Pin=P1-5
+Added Pin To Net: NetName=SEN4 Pin=P1-6
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=GND Pin=R1-1
+Added Pin To Net: NetName=NEG1 Pin=R1-2
+Added Pin To Net: NetName=NEG1 Pin=R1-2
+Added Pin To Net: NetName=NetB1_1 Pin=R1-3
+Added Pin To Net: NetName=NetB1_8 Pin=R1-4
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=GND Pin=R2-1
+Added Pin To Net: NetName=NEG2 Pin=R2-2
+Added Pin To Net: NetName=NEG2 Pin=R2-2
+Added Pin To Net: NetName=NetB2_1 Pin=R2-3
+Added Pin To Net: NetName=NetB2_8 Pin=R2-4
+Added Pin To Net: NetName=GND Pin=R3-1
+Added Pin To Net: NetName=GND Pin=R3-1
+Added Pin To Net: NetName=NEG3 Pin=R3-2
+Added Pin To Net: NetName=NEG3 Pin=R3-2
+Added Pin To Net: NetName=NetB3_1 Pin=R3-3
+Added Pin To Net: NetName=NetB3_8 Pin=R3-4
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=NEG4 Pin=R4-2
+Added Pin To Net: NetName=NEG4 Pin=R4-2
+Added Pin To Net: NetName=NetB4_1 Pin=R4-3
+Added Pin To Net: NetName=NetB4_8 Pin=R4-4
+Added Member To Class: ClassName=currentAmp Member=Component B1 INA282AIDR
+Added Member To Class: ClassName=currentAmp Member=Component B2 INA282AIDR
+Added Member To Class: ClassName=currentAmp Member=Component B3 INA282AIDR
+Added Member To Class: ClassName=currentAmp Member=Component B4 INA282AIDR
+Added Member To Class: ClassName=currentAmp Member=Component C1 4.7uF (475) 10% 25V
+Added Member To Class: ClassName=currentAmp Member=Component C2 4.7uF (475) 10% 25V
+Added Member To Class: ClassName=currentAmp Member=Component C3 4.7uF (475) 10% 25V
+Added Member To Class: ClassName=currentAmp Member=Component C4 4.7uF (475) 10% 25V
+Added Member To Class: ClassName=currentAmp Member=Component H1 XTx0
+Added Member To Class: ClassName=currentAmp Member=Component H2 XTx0
+Added Member To Class: ClassName=currentAmp Member=Component H3 XTx0
+Added Member To Class: ClassName=currentAmp Member=Component H4 XTx0
+Added Member To Class: ClassName=currentAmp Member=Component H5 XTx0
+Added Member To Class: ClassName=currentAmp Member=Component P1 Header 6
+Added Member To Class: ClassName=currentAmp Member=Component R1 Res Kelvin
+Added Member To Class: ClassName=currentAmp Member=Component R2 Res Kelvin
+Added Member To Class: ClassName=currentAmp Member=Component R3 Res Kelvin
+Added Member To Class: ClassName=currentAmp Member=Component R4 Res Kelvin
+Added Room: Name=currentAmp

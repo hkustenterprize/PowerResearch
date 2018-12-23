@@ -1,0 +1,5 @@
+Added Component: Designator=H5(XT30-PW - no anc)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=H5-NEG
+Added Pin To Net: NetName=+12 Pin=H5-POS
+Added Member To Class: ClassName=currentAmp Member=Component H5 XTx0
