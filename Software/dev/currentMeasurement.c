@@ -11,10 +11,14 @@
 #include "hal.h"
 #include "string.h"
 
+static const float currentOffset[4] =
+{ 2031.5, 2029.3, 2030.0, 2034.5 };
+static const float sampleToAmps = 62.06061;
+
 //Stores raw adc sampled data for all channels
 static adcsample_t s_currentSamples[ADC_BUF_DEPTH][ADC_NUM_CHANNELS];
 
-//Stores oversampled adc data for increased ENOB
+//Stores oversampled adc data for increased ENOB, in amps
 static float s_currentOverSampled[ADC_NUM_CHANNELS];
 
 /*
@@ -41,7 +45,8 @@ static void adcProcessSamplingEOC(ADCDriver *adcp, adcsample_t *buffer, size_t n
         {
             s_tempSum += s_currentSamples[s_sampleCount][s_channelCount];
         }
-        s_currentOverSampled[s_channelCount] = (float) s_tempSum / ADC_BUF_DEPTH;
+        s_currentOverSampled[s_channelCount] = -(((float) s_tempSum / ADC_BUF_DEPTH) -
+        currentOffset[s_channelCount]) / sampleToAmps;
     }
 
 }
