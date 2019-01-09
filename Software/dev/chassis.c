@@ -47,13 +47,13 @@ bool powerM_enable = true;
 #define TWIST_MOVE_ANGLE 90
 #define TWIST_MOVE_PERIOD 1000
 
-#define accl_value 165.0 / (500) // 500 is the frequency and 1 means 1 second
-#define accl_y 3300 * 0.4 / (500)
-#define accl_x 3300 * 0.4 / (500) // slide
-#define deccl_y 3300*1.1/ (500)
-#define deccl_x 3300*1.1 / (500)
+float accl_value = 165.0 / (500); // 500 is the frequency and 1 means 1 second, 
+float accl_y = 3300 * 0.4 / (500);      //Used in acceleration_limit_control, max acceleration allowed
+float accl_x = 3300 * 0.4 / (500);      //maximum acceleration error integral
+float deccl_y = 3300 * 1.1 / (500);     //Value used in deceleration process, subtracted per cycle, strafe
+float deccl_x = 3300 * 1.1 / (500);     //Value used in deceleration process, subtracted per cycle, drive
 
-#define boost_accl 3300 * 0.4 / (500)
+float boost_accl = 3300 * 0.4 / (500);
 chassis_error_t chassis_getError(void) { return chassis.errorFlag; }
 
 chassisStruct *chassis_get(void) { return &chassis; }
@@ -242,6 +242,7 @@ static THD_FUNCTION(chassis_control, p) {
   uint32_t tick = chVTGetSystemTimeX();
   //  uint32_t tick_magazine = ST2MS(chVTGetSystemTimeX());
   chassis.ctrl_mode = CHASSIS_STOP;
+  chassis.power_limit = 75;
   while (!chThdShouldTerminateX()) {
  //   chassis.ctrl_mode = MANUAL_SEPARATE_GIMBAL;
  // Handle reboot
@@ -272,7 +273,7 @@ static THD_FUNCTION(chassis_control, p) {
 
 
 
-    chassis.power_limit = 75;
+    
 
 //    if(JudgeP->powerInfo.powerBuffer<=60 && JudgeP->powerInfo.powerBuffer >=5){
 //      chassis.power_limit = JudgeP->powerInfo.powerBuffer/1.5+40;
@@ -289,7 +290,7 @@ static THD_FUNCTION(chassis_control, p) {
 //      chassis.power_limit = 40;
 //    }
 
-    Collision_detection();
+    //Collision_detection();
 
     if (keyboard_enable(pRC)){
       keyboard_chassis_process(&chassis, pRC);
@@ -359,6 +360,13 @@ static const HeadingName = "Heading";
 #define MOTOR_VEL_INT_MAX 12000U
 void chassis_init(void) {
   memset(&chassis, 0, sizeof(chassisStruct));
+  accl_value = 165.0 / (500); // 500 is the frequency and 1 means 1 second
+  accl_y = 3300 * 0.4 / (500);
+  accl_x = 3300 * 0.4 / (500); // slide
+  deccl_y = 3300 * 1.1 / (500);
+  deccl_x = 3300 * 1.1 / (500);
+
+  boost_accl = 3300 * 0.4 / (500);
   chassis.drive_sp = 0.0f;
   chassis.drive_curve = 0.0f;
   chassis.strafe_curve = 0.0f;
@@ -475,27 +483,27 @@ void mecanum_cal(){
   //  //mm/s
   VAL_LIMIT(chassis.rotate_sp, -MAX_CHASSIS_VR_SPEED,
             MAX_CHASSIS_VR_SPEED); // deg/s
-
-  if (fabs(chassis.strafe_curve) <= fabs(chassis.strafe_sp)) {
-    if (chassis.strafe_sp >= 0){
-      if(PowerModule_info->pathType == 2 && JudgeP->powerInfo.volt > 22.3 && powerM_enable){
-        chassis.strafe_curve += boost_accl;
+  //my understanding: strafe_sp is final target speed, strafe_curve is acc limited incrementing speed setpoint
+  if (fabs(chassis.strafe_curve) <= fabs(chassis.strafe_sp)) {          //Need acceleration in either direcion?
+    if (chassis.strafe_sp >= 0){                                        //if commanded to go forward
+      if(PowerModule_info->pathType == 2 && JudgeP->powerInfo.volt > 22.3 && powerM_enable){  //if power module enabled
+        chassis.strafe_curve += boost_accl;                             //increment strafe_curve a bit more for extra acceleration  TUNE_PT
       }
       else{
         if(powerM_enable){
-          chassis.strafe_curve += acceleration_limit_control(
-              &acceleration_limit_controller,PowerModule_info->powerChassis, chassis.power_limit);
-        }else{
-          chassis.strafe_curve += acceleration_limit_control(
-              &acceleration_limit_controller, JudgeP->powerInfo.power,
-              chassis.power_limit);
-        }
+          chassis.strafe_curve += acceleration_limit_control(                                       //
+              &acceleration_limit_controller,PowerModule_info->powerChassis, chassis.power_limit);  // This block tells the acc_limit_control which power data to use
+        }else{                                                                                      // PowerModule vs judge data
+          chassis.strafe_curve += acceleration_limit_control(                                       //
+              &acceleration_limit_controller, JudgeP->powerInfo.power,                              // Does the chassis.power_liimit change too?  INVESTIGATE
+              chassis.power_limit);                                                                 //
+        }                                                                                           //
 
       }
-      if (chassis.strafe_curve <= 0) {
+      if (chassis.strafe_curve <= 0) {        //breaking
         chassis.strafe_curve = 0;
       }
-    }else{
+    }else{                                                                                          //Same as above, opposite direction
       if(PowerModule_info->pathType == 2 && JudgeP->powerInfo.volt > 22.3&& powerM_enable ){
         chassis.strafe_curve -= boost_accl;
       }
@@ -512,11 +520,11 @@ void mecanum_cal(){
       if (chassis.strafe_curve >= 0) {
         chassis.strafe_curve = 0;
       }
-    }
-    if (fabs(chassis.strafe_curve) >= fabs(chassis.strafe_sp)) {
+    }                                                                                               //Block ends
+    if (fabs(chassis.strafe_curve) >= fabs(chassis.strafe_sp)) {    //Final speed target reached, cap speed setpoint
       chassis.strafe_curve = chassis.strafe_sp;
     }
-  } else if (fabs(chassis.strafe_curve) > fabs(chassis.strafe_sp)){
+  } else if (fabs(chassis.strafe_curve) > fabs(chassis.strafe_sp)){ //Need deceleration in either direction? Try to stop
     // if(fabs(chassis.strafe_sp) < 0.003){ // check whether the user intended
     // to stop
     float previous_strafe_curve = chassis.strafe_curve;
@@ -528,8 +536,8 @@ void mecanum_cal(){
 
     if (fabs(chassis.strafe_sp) < 0.003) {
       if (((previous_strafe_curve > 0) & (chassis.strafe_curve < 0)) |
-          ((previous_strafe_curve < 0) & (chassis.strafe_curve > 0))) {
-        chassis.strafe_curve = 0;
+          ((previous_strafe_curve < 0) & (chassis.strafe_curve > 0))) {   //trying to stop?
+        chassis.strafe_curve = 0;                                         //stop
       }
     } else if (fabs(chassis.strafe_curve) < fabs(chassis.strafe_sp)) {
       chassis.strafe_curve = chassis.strafe_sp;
