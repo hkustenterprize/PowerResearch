@@ -100,7 +100,7 @@ int main(void) {
     barrelHeatLimitControl_init();
     extiinit(); //*
 
-    //chassis_init();
+    chassis_init();
 
     customData_init();
     power_module_init();

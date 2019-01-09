@@ -16,7 +16,7 @@ extern "C"
 #define ADC_NUM_CHANNELS                    4
 #define ADC_BUF_DEPTH                       16
 #define CURRENT_MEASUREMENT_ADC_DRIVER      &ADCD2
-//
+
 //extern float s_currentOverSampled[ADC_NUM_CHANNELS];
 
 //Init analog input pins, init ADC and start continuous conversion
