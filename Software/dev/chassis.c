@@ -47,8 +47,8 @@ bool powerM_enable = true;
 #define TWIST_MOVE_ANGLE 90
 #define TWIST_MOVE_PERIOD 1000
 
-float accl_value = 165.0 / (500); // 500 is the frequency and 1 means 1 second, 
-float accl_y = 3300 * 0.4 / (500);      //Used in acceleration_limit_control, max acceleration allowed
+float accl_value = 5; // 500 is the frequency and 1 means 1 second, 
+float accl_y = 30;      //Used in acceleration_limit_control, max acceleration allowed
 float accl_x = 3300 * 0.4 / (500);      //maximum acceleration error integral
 float deccl_y = 3300 * 1.1 / (500);     //Value used in deceleration process, subtracted per cycle, strafe
 float deccl_x = 3300 * 1.1 / (500);     //Value used in deceleration process, subtracted per cycle, drive
@@ -169,17 +169,12 @@ float RC_RESOLUTION = 660.0f;
 
 static void rm_chassis_process(void) {
 
-  rm.vx = (pRC->channel0 - 1024) / RC_RESOLUTION * CHASSIS_RC_MAX_SPEED_X;
-  rm.vy = (pRC->channel1 - 1024) / RC_RESOLUTION * CHASSIS_RC_MAX_SPEED_Y;
+  // rm.vx = (pRC->channel0 - 1024) / RC_RESOLUTION * CHASSIS_RC_MAX_SPEED_X;
+  // rm.vy = (pRC->channel1 - 1024) / RC_RESOLUTION * CHASSIS_RC_MAX_SPEED_Y;
+    rm.vx =  (Rc->rc.channel0 - 1024) / RC_RESOLUTION * CHASSIS_RC_MAX_SPEED_X;
+    rm.vy =   (Rc->rc.channel1 - 1024) / RC_RESOLUTION * CHASSIS_RC_MAX_SPEED_Y;
+    rm.vw = (Rc->rc.channel2 - 1024) / RC_RESOLUTION * MAX_CHASSIS_VR_SPEED;
 
-
-  /*
-       rm.vx =  (Rc->rc.channel0 - 1024) / RC_RESOLUTION *
-     CHASSIS_RC_MAX_SPEED_X;
-       rm.vy =   (Rc->rc.channel1 - 1024) / RC_RESOLUTION *
-     CHASSIS_RC_MAX_SPEED_Y;
-       rm.vw = (Rc->rc.channel2 - 1024) / RC_RESOLUTION * MAX_CHASSIS_VR_SPEED;
-*/
 }
 
 static inline void motor_debug_can(CANDriver *const CANx) {
@@ -242,7 +237,7 @@ static THD_FUNCTION(chassis_control, p) {
   uint32_t tick = chVTGetSystemTimeX();
   //  uint32_t tick_magazine = ST2MS(chVTGetSystemTimeX());
   chassis.ctrl_mode = CHASSIS_STOP;
-  chassis.power_limit = 75;
+  chassis.power_limit = 750000;
   while (!chThdShouldTerminateX()) {
  //   chassis.ctrl_mode = MANUAL_SEPARATE_GIMBAL;
  // Handle reboot
@@ -271,27 +266,6 @@ static THD_FUNCTION(chassis_control, p) {
     }
     chassis_encoderUpdate();
 
-
-
-    
-
-//    if(JudgeP->powerInfo.powerBuffer<=60 && JudgeP->powerInfo.powerBuffer >=5){
-//      chassis.power_limit = JudgeP->powerInfo.powerBuffer/1.5+40;
-//    }else {
-//      if(JudgeP->powerInfo.power > 80 && !chassis_absolute_speed(1)){
-//        chassis.ctrl_mode = SAVE_LIFE;
-//        // chassis.power_limit = 0;
-//        int i;
-//        for (i = 0; i < 4; i++) {
-//          motor_vel_controllers[i].error_int = 0;
-//        }
-//        power_limit_controller.error_int = 0;
-//      }
-//      chassis.power_limit = 40;
-//    }
-
-    //Collision_detection();
-
     if (keyboard_enable(pRC)){
       keyboard_chassis_process(&chassis, pRC);
       rm.vx = 0;
@@ -301,7 +275,9 @@ static THD_FUNCTION(chassis_control, p) {
       keyboard_reset();
     }
 
-    switch (chassis.ctrl_mode) {
+    chassis.ctrl_mode = MANUAL_SEPARATE_GIMBAL;
+    switch (chassis.ctrl_mode)
+    {
     case DODGE_MODE: {
       chassis.strafe_sp = 0;
       chassis.drive_sp = 0;
@@ -360,8 +336,8 @@ static const HeadingName = "Heading";
 #define MOTOR_VEL_INT_MAX 12000U
 void chassis_init(void) {
   memset(&chassis, 0, sizeof(chassisStruct));
-  accl_value = 165.0 / (500); // 500 is the frequency and 1 means 1 second
-  accl_y = 3300 * 0.4 / (500);
+  accl_value = 5; // 500 is the frequency and 1 means 1 second
+  accl_y = 25;
   accl_x = 3300 * 0.4 / (500); // slide
   deccl_y = 3300 * 1.1 / (500);
   deccl_x = 3300 * 1.1 / (500);
@@ -791,19 +767,24 @@ float power_limit_control(pid_controller_t *controller, float get, float set) {
 }
 
 void speed_limit_handle() {
-  if (JudgeP->powerInfo.power > 80) {
-    if (JudgeP->powerInfo.powerBuffer <= 40) {
-      int i;
-      for (i = 0; i < 4; i++) {
-        if (chassis._motors[i].speed_sp >= chassis._motors[i]._speed &&
-            fabs(chassis._motors[i].speed_sp) >=
-                fabs(chassis._motors[i]._speed)) {
-          chassis._motors[i].speed_curve =
-              chassis._motors[i]._speed + accl_value;
-          if (chassis._motors[i].speed_curve > chassis._motors[i].speed_sp) {
-            chassis._motors[i].speed_curve = chassis._motors[i].speed_sp;
-          }
-        } else if (chassis._motors[i].speed_sp <= chassis._motors[i]._speed &&
+  //if (JudgeP->powerInfo.power > 80) {
+    if (FALSE) {                                //MODIFIED disable over power checking
+      if (JudgeP->powerInfo.powerBuffer <= 40)
+      {
+        int i;
+        for (i = 0; i < 4; i++)
+        {
+          if (chassis._motors[i].speed_sp >= chassis._motors[i]._speed &&
+              fabs(chassis._motors[i].speed_sp) >=
+                  fabs(chassis._motors[i]._speed))
+          {
+            chassis._motors[i].speed_curve =
+                chassis._motors[i]._speed + accl_value;
+            if (chassis._motors[i].speed_curve > chassis._motors[i].speed_sp)
+            {
+              chassis._motors[i].speed_curve = chassis._motors[i].speed_sp;
+            }
+          } else if (chassis._motors[i].speed_sp <= chassis._motors[i]._speed &&
                    fabs(chassis._motors[i].speed_sp) >=
                        fabs(chassis._motors[i]._speed)) {
           chassis._motors[i].speed_curve =
@@ -845,11 +826,11 @@ void speed_limit_handle() {
   }
 }
 void save_life() {
-  chassis.strafe_curve = 0;
-  chassis.drive_curve = 0;
-  chassis.rotate_sp = 0;
-  chassis.strafe_sp = 0;
-  chassis.drive_sp = 0;
+  // chassis.strafe_curve = 0;      //MODIFIED disable save_life resetting speed
+  // chassis.drive_curve = 0;
+  // chassis.rotate_sp = 0;
+  // chassis.strafe_sp = 0;
+  // chassis.drive_sp = 0;
 
   if (JudgeP->powerInfo.powerBuffer >= 50) {
     chassis.ctrl_mode = MANUAL_FOLLOW_GIMBAL;
@@ -910,33 +891,5 @@ void power_limit_handle() {
   } else {
     chassis.drive_curve = 0;
   }
-  /*
-  int power_limit = 80 + 0.5*JudgeP->powerInfo.powerBuffer;
-  float a0 = fabs(chassis._encoders[0].act_current * 20.0/16384.0);
-  float a1 = fabs(chassis._encoders[1].act_current * 20.0/16384.0);
-  float a2 = fabs(chassis._encoders[2].act_current * 20.0/16384.0);
-  float a3 = fabs(chassis._encoders[3].act_current * 20.0/16384.0);
-  int MAX = (power_limit - 3 - 0.14*(a0*a0+a1*a1+a2*a2+a3*a3))/0.005;
 
-
-  float A0 = fabs(chassis.current[0] * 20.0/16384.0);
-  float A1 = fabs(chassis.current[1]* 20.0/16384.0);
-  float A2 = fabs(chassis.current[2] * 20.0/16384.0);
-  float A3 = fabs(chassis.current[3]* 20.0/16384.0);
-  int SUM =  fabs(chassis._encoders[0].raw_speed)*A0
-             +fabs(chassis._encoders[1].raw_speed)*A1
-             +fabs(chassis._encoders[2].raw_speed)*A2
-             +fabs(chassis._encoders[3].raw_speed)*A3;
-
-  if(SUM > MAX && JudgeP->powerInfo.power >= 80){
-    chassis.current[FRONT_RIGHT] = chassis.current[FRONT_RIGHT] * MAX / SUM;
-    chassis.current[FRONT_LEFT] = chassis.current[FRONT_LEFT] * MAX / SUM;
-    chassis.current[BACK_LEFT] = chassis.current[BACK_LEFT] * MAX / SUM;
-    chassis.current[BACK_RIGHT] = chassis.current[BACK_RIGHT] * MAX / SUM;
-    chassis.over_power = true;
-  }
-  else{
-    chassis.over_power = false;
-  }
-*/
 }

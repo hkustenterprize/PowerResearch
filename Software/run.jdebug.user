@@ -1,0 +1,20 @@
+OpenDocument="hal_lld.c", FilePath="C:\GCC_STM\PowerResearch\Software\dev\../os/hal/ports/STM32/STM32F4xx\hal_lld.c", Line=100
+OpenDocument="main.c", FilePath="C:\GCC_STM\PowerResearch\Software\dev\main.c", Line=39
+OpenToolbar="Debug", Floating=0, x=0, y=0
+OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=0, w=294, h=383, FilterBarShown=0, FilteredItems=[]
+OpenWindow="Source Files", DockArea=LEFT, x=0, y=1, w=195, h=788, FilterBarShown=1
+OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=294, h=383, FilterBarShown=0, ExecCountersShown=0
+OpenWindow="Source", x=0, y=0, w=0, h=0, FilterBarShown=0, ExecCountersShown=0
+OpenWindow="Break & Tracepoints", DockArea=LEFT, x=0, y=0, w=195, h=487, FilterBarShown=0
+OpenWindow="Watched Data", DockArea=RIGHT, x=0, y=1, w=294, h=892, FilterBarShown=0
+OpenWindow="Functions", DockArea=LEFT, x=0, y=1, w=195, h=788, FilterBarShown=1
+OpenWindow="Data Graph", DockArea=BOTTOM, x=1, y=0, w=1495, h=164, FilterBarShown=0, VisibleTab=0, SamplingFreq=1 kHz, ClearEvent=RESUME
+OpenWindow="Console", DockArea=BOTTOM, x=0, y=0, w=1384, h=164, FilterBarShown=0
+TableHeader="Watched Data", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[185;249;123;71]
+TableHeader="Break & Tracepoints", SortCol="None", SortOrder="ASCENDING", VisibleCols=["";"Type";"Location";"Extras"], ColWidths=[38;71;97;362]
+TableHeader="Functions", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Source"], ColWidths=[275;95;66;84;221]
+TableHeader="Source Files", SortCol="File", SortOrder="ASCENDING", VisibleCols=["File";"Status";"Size";"#Insts";"Path"], ColWidths=[151;81;66;84;923]
+TableHeader="DataGraphSamples", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time                    "], ColWidths=[114;71]
+TableHeader="Data Graph", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[176;74;84;274;264;124;115;134;250]
+TableHeader="tableWidgetSamples", SortCol="None", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Channel 0"], ColWidths=[108;153;162]
+TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[232;203;329]

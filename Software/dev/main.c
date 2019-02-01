@@ -84,26 +84,26 @@ int main(void) {
 
     currentMeasurementInit();
 
-    shellStart();
+    //shellStart();
     params_init();
     //***
     // extiinit();
     //***
     can_processInit();
-    pwm_magazine_cover_init();
+    //pwm_magazine_cover_init();
     //magazineTracker_init();
     //weightinit();
     RC_init();
     attitude_init();
     // pwm_shooter_init();
     judgeinit();
-    barrelHeatLimitControl_init();
-    extiinit(); //*
+    //barrelHeatLimitControl_init();
+    //extiinit(); //*
 
     chassis_init();
 
-    customData_init();
-    power_module_init();
+    //customData_init();
+    //power_module_init();
 
     while (true)
     {

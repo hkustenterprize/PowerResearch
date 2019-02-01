@@ -30,7 +30,7 @@ else if((val) >= (max))\
 }\
 } while(0)\
 
-#define powerlimit 80
+#define powerlimit 80000	//MODIFIED  MOAR POWARRR!!!
 /************************ chassis parameter ****************************/
 /* the radius of wheel(mm) */
 #define RADIUS     76
@@ -56,10 +56,10 @@ else if((val) >= (max))\
 //  #define CHASSIS_DECELE_RATIO (1.0f/27.0f)
 
   /* single 3508 motor maximum speed, unit is rpm */
-  #define MAX_WHEEL_RPM        350 //414 //8000  //8347rpm = 3500mm/s
+  #define MAX_WHEEL_RPM        700 //414 //8000  //8347rpm = 3500mm/s
   /* chassis maximum translation speed, unit is mm/s */
-  #define MAX_CHASSIS_VX_SPEED 3300  //8000rpm
-  #define MAX_CHASSIS_VY_SPEED 3300
+  #define MAX_CHASSIS_VX_SPEED 3500  //8000rpm
+  #define MAX_CHASSIS_VY_SPEED 3500
   /* chassis maximum rotation speed, unit is degree/s */
   #define MAX_CHASSIS_VR_SPEED 300   //5000rpm
 
